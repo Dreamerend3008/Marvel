@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b4864dc0-9666-62d9-6d48-d46058d2ac3e": {
+      "ProjectGuid": "b4864dc0-9666-62d9-6d48-d46058d2ac3e",
+      "DisplayName": "Unity.2D.SpriteShape.Runtime",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
