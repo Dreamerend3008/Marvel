@@ -5,7 +5,17 @@
       "ProjectGuid": "b4864dc0-9666-62d9-6d48-d46058d2ac3e",
       "DisplayName": "Unity.2D.SpriteShape.Runtime",
       "ColorIndex": 0
+    },
+    "33c8fc7f-fdf7-a082-b69d-308981334c74": {
+      "ProjectGuid": "33c8fc7f-fdf7-a082-b69d-308981334c74",
+      "DisplayName": "Assembly-CSharp",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }
