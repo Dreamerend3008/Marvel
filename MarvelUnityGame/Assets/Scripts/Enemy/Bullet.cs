@@ -5,17 +5,23 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 2f;
-    public Vector2 direction;
+    public float tiempoVida = 2f;
+    private float _startingTime;
+
     public int damage = 1;
 
-    public float tiempoVida = 2f;
+    private bool _returning;
+
+    public GameObject player;
+    public Vector2 direction; 
+
     public Color initialColor;
     public Color finalColor;
 
     private SpriteRenderer _renderer;
-    private float _startingTime;
+    
     private Rigidbody2D _rigidbody;
-    private bool _returning;
+    
 
     void Awake()
     {
@@ -28,8 +34,7 @@ public class Bullet : MonoBehaviour
         _startingTime = Time.time;
 
         // Destrozando la bala despues de un tiempo
-        //Destroy(this.gameObject, tiempoVida);
-
+        
     }
 
     // Update is called once per frame
@@ -40,31 +45,26 @@ public class Bullet : MonoBehaviour
         float _porcetanjeCompleto = _TimeSincestarted / tiempoVida;
 
         _renderer.color = Color.Lerp(initialColor, finalColor, _porcetanjeCompleto);
-    }
 
-    private void FixedUpdate()
-    {
-        Vector2 movement = direction;
+        //move
+        _rigidbody.velocity = direction * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (_returning == false && collision.CompareTag("Player"))
         {
-            // damage
-            //collision.SendMessageUpwards("AddDamage", damage);
-            //Destroy(gameObject);
+            
         }
 
         if (_returning == true && collision.CompareTag("Enemy"))
         {
             // damage
             collision.SendMessageUpwards("AddDamage", damage);
-            //Destroy(gameObject);
         }
     }
     public void giveDirection(Vector2 NewDireccion)
     {
-       _rigidbody.velocity = NewDireccion * speed;
+       direction = NewDireccion.normalized;
     }
 }

@@ -44,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(_floorPoint.position, -Vector2.up, 0.1f, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(_floorPoint.position, Vector2.down, 1f, groundLayer);
         if (hit.collider != null && hit.collider.tag == "Ground")
         {
 
@@ -68,7 +68,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     public void flip()
-    {
+    {        
         _facingRight = !_facingRight;
         float localScalex = transform.localScale.x;
         localScalex = localScalex * -1f;
