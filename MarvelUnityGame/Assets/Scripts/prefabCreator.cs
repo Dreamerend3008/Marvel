@@ -6,15 +6,20 @@ public class prefabCreator : MonoBehaviour
 {
     public GameObject prefab;
     public Transform point;
-    public float livingTime;
+    public int livingTime;
+    public bool atack = false;
 
-    public void Intantiate()
+    public void Intantiate(Vector2 direction)
     {
-        GameObject instantiateObject = Instantiate(prefab, point.position, Quaternion.identity) as GameObject;
-
-        if (livingTime > 0f)
+        if (atack == false)
         {
-            Destroy(instantiateObject, livingTime);
+            GameObject instantiateObject = Instantiate(prefab, point.position, Quaternion.identity) as GameObject;
+            instantiateObject.SendMessage("giveDirection", direction);
+            atack = true;
         }
+    }
+    public void atacks(bool infoAtack)
+    {
+        atack = infoAtack;
     }
 }

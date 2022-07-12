@@ -100,7 +100,8 @@ MonoBehaviour:
   speed: 1
   tiempoVida: 4
   damage: 1
-  player: {fileID: 0}
+  player: {fileID: 1729485921820523554, guid: 665a2cf1e0f00aa43be6a0ee99926161, type: 3}
+  Creator: {fileID: 4854624456726142169, guid: 78a64dc0ffb4a9d46b62bb0e64373a47, type: 3}
   direction: {x: 0, y: 0}
   initialColor: {r: 1, g: 0.0047169924, b: 0.9345837, a: 1}
   finalColor: {r: 1, g: 1, b: 1, a: 1}

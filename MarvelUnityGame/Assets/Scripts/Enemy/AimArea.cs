@@ -6,12 +6,14 @@ public class AimArea : MonoBehaviour
 {
     public GameObject receiver;
     public GameObject Creator;
+    bool atack = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         RaycastHit2D hit = Physics2D.Raycast(this.transform.position, collision.transform.position, 100f);
-        if (hit)
+        if (hit && atack == false)
         {
-            Creator.SendMessage("Intantiate");
+            Creator.SendMessage("Intantiate", hit.point);
+            atack = true;
         }
         
     }

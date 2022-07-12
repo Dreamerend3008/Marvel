@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     private bool _returning;
 
     public GameObject player;
+    public GameObject Creator;
     public Vector2 direction; 
 
     public Color initialColor;
@@ -34,7 +35,7 @@ public class Bullet : MonoBehaviour
         _startingTime = Time.time;
 
         // Destrozando la bala despues de un tiempo
-        
+        Destroy(this.gameObject, tiempoVida);
     }
 
     // Update is called once per frame
@@ -54,7 +55,7 @@ public class Bullet : MonoBehaviour
     {
         if (_returning == false && collision.CompareTag("Player"))
         {
-            
+            Destroy(this.gameObject);
         }
 
         if (_returning == true && collision.CompareTag("Enemy"))
@@ -66,5 +67,9 @@ public class Bullet : MonoBehaviour
     public void giveDirection(Vector2 NewDireccion)
     {
        direction = NewDireccion.normalized;
+    }
+    private void OnDestroy()
+    {
+        Creator.SendMessage("atacks", false);
     }
 }
