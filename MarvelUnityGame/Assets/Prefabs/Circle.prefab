@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4122226001518626303}
   - component: {fileID: 4122226001518626288}
   - component: {fileID: 4122226001518626289}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,11 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4133882987b901e4da39b4f57a828974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  tiempoVida: 4
+  speed: 3
+  tiempoVida: 10
   damage: 1
   player: {fileID: 1729485921820523554, guid: 665a2cf1e0f00aa43be6a0ee99926161, type: 3}
-  Creator: {fileID: 4854624456726142169, guid: 78a64dc0ffb4a9d46b62bb0e64373a47, type: 3}
+  Creator: {fileID: 1205207521796874852, guid: de9d45bf8147a3745992d46677a16fd4, type: 3}
   direction: {x: 0, y: 0}
   initialColor: {r: 1, g: 0.0047169924, b: 0.9345837, a: 1}
   finalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -113,7 +113,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4122226001518626290}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

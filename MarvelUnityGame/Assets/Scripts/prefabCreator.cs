@@ -11,7 +11,7 @@ public class prefabCreator : MonoBehaviour
 
     public void Intantiate(Vector2 direction)
     {
-        if (atack == false)
+        if (atack == true)
         {
             GameObject instantiateObject = Instantiate(prefab, point.position, Quaternion.identity) as GameObject;
             instantiateObject.SendMessage("giveDirection", direction);

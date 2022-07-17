@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class AimArea : MonoBehaviour
 {
-    public GameObject receiver;
-    public GameObject Creator;
-    bool atack = false;
+    public Rigidbody2D Enemy;
+    public Collider2D player;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, collision.transform.position, 100f);
-        if (hit && atack == false)
-        {
-            Creator.SendMessage("Intantiate", hit.point);
-            atack = true;
-        }
         
+        if (collision == player)
+            {
+                Enemy.SendMessage("getAtack", true);
+            }
     }
 }

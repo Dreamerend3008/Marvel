@@ -10,7 +10,6 @@ public class Bullet : MonoBehaviour
 
     public int damage = 1;
 
-    private bool _returning;
 
     public GameObject player;
     public GameObject Creator;
@@ -47,29 +46,24 @@ public class Bullet : MonoBehaviour
 
         _renderer.color = Color.Lerp(initialColor, finalColor, _porcetanjeCompleto);
 
-        //move
-        _rigidbody.velocity = direction * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_returning == false && collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             Destroy(this.gameObject);
         }
 
-        if (_returning == true && collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy"))
         {
+            Destroy(this.gameObject);
             // damage
-            collision.SendMessageUpwards("AddDamage", damage);
+            
         }
-    }
-    public void giveDirection(Vector2 NewDireccion)
-    {
-       direction = NewDireccion.normalized;
     }
     private void OnDestroy()
     {
-        Creator.SendMessage("atacks", false);
+        //Creator.SendMessage("atacks", false);
     }
 }

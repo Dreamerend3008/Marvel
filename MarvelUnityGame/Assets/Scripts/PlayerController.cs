@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Transform groundCheck;
+    public LayerMask groundLayer;
+    public float groundCheckRadius;
+
     public float speed;
     public float jumpForce;
 
     private bool _facingRight;
+    private bool _isGrounded;
 
     private Rigidbody2D _rigidBody;
     private Animator _animator;
@@ -31,9 +36,13 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetBool("Walking", false);
         }
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && _isGrounded == true)
         {
             _rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+        if (Input.GetButtonDown("Fire1") && _isGrounded == true)
+        {
+            _animator.SetTrigger("Atack");
         }
 
         if (HorizontalInput > 0f && _facingRight == true)
@@ -44,6 +53,12 @@ public class PlayerController : MonoBehaviour
         {
             flip();
         }
+
+        _isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+    private void LateUpdate()
+    {
+        _animator.SetBool("_isGrounded", _isGrounded);
     }
     void FixedUpdate()
     {
