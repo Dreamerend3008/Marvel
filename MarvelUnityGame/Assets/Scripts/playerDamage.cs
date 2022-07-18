@@ -10,12 +10,12 @@ public class playerDamage : MonoBehaviour
     public SpriteRenderer DamageBorderUI;
     public Color temp;
 
-    public RectTransform GameOverMenu;
-    public RectTransform BackGround;
-    public GameObject hordes;
+    public GameObject GameOverMenu;
+    public GameObject Game;
+    //public GameObject hordes;
     public GameObject CheckPoint;
-    public GameObject Audio;
-    public GameObject Audio2;
+    //public GameObject Audio;
+   //public GameObject Audio2;
 
     //Camera 
     public GameObject Camera;
@@ -26,12 +26,12 @@ public class playerDamage : MonoBehaviour
     public ParticleSystem particle;
 
     private int health;
-    private float heartSize = 100f;
+    private float heartSize = 66f;
 
     private SpriteRenderer _renderer;
     private Animator _animator;
     private PlayerController _controller;
-    private Vector3 _savedPosition;
+    private Vector2 _savedPosition;
 
 
     private void Awake()
@@ -106,9 +106,10 @@ public class playerDamage : MonoBehaviour
     }
     private void OnDisable()
     {
-        //GameOverMenu.gameObject.SetActive(true);
-        Audio.SetActive(true);
-        Audio2.SetActive(false);
+        GameOverMenu.SetActive(true);
+        Game.SetActive(false);
+        //Audio.SetActive(true);
+        //Audio2.SetActive(false);
         health = 0;
     }
     public void MaxHerath()
@@ -118,7 +119,7 @@ public class playerDamage : MonoBehaviour
     }
     private IEnumerator CameraShaking()
     {
-        Camera.transform.position = new Vector2(CenterPoint.transform.position.x + 1.5f, Camera.transform.position.y);
+        Camera.transform.position = new Vector2(CenterPoint.transform.position.x + 1f, Camera.transform.position.y);
 
         yield return new WaitForSeconds(0.025f);
 

@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
 
         if (collision.CompareTag("Enemy"))
@@ -61,9 +61,5 @@ public class Bullet : MonoBehaviour
             // damage
             
         }
-    }
-    private void OnDestroy()
-    {
-        //Creator.SendMessage("atacks", false);
     }
 }

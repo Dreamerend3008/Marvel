@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class AddDamge : MonoBehaviour
 {
+    public Collider2D Enemy;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SendMessageUpwards("AddDamage", 1);
+        if (collision.tag != Enemy.tag)
+        {
+            Destroy(collision.gameObject);
+            SendMessageUpwards("AddDamage", 1);
+        }
+       
+
     }
+
 }
+

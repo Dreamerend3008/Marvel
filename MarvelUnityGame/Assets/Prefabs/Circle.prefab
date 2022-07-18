@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4133882987b901e4da39b4f57a828974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  tiempoVida: 10
+  speed: 4
+  tiempoVida: 3
   damage: 1
   player: {fileID: 1729485921820523554, guid: 665a2cf1e0f00aa43be6a0ee99926161, type: 3}
   Creator: {fileID: 1205207521796874852, guid: de9d45bf8147a3745992d46677a16fd4, type: 3}
@@ -136,7 +136,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

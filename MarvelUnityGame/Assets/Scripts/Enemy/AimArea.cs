@@ -9,7 +9,6 @@ public class AimArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if (collision == player)
             {
                 Enemy.SendMessage("getAtack", true);
